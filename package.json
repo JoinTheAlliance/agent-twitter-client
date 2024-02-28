@@ -2,13 +2,10 @@
   "name": "agent-twitter-client",
   "description": "A twitter client for agents",
   "keywords": ["agent", "bgent", "twitter", "x"],
-  "version": "0.9.3",
-  "main": "dist/_module.js",
+  "version": "0.0.1",
+  "main": "dist/index.js",
   "repository": "https://github.com/jointhealliance/agent-twitter-client.git",
   "license": "MIT",
-  "engines": {
-    "node": ">=16"
-  },
   "scripts": {
     "build": "tsc",
     "format": "prettier --write src/**/*.ts",
@@ -22,7 +19,6 @@
     "tslib": "^2.5.2"
   },
   "devDependencies": {
-    "@tsconfig/node16": "^16.1.0",
     "@types/jest": "^29.5.1",
     "@types/json-stable-stringify": "^1.0.34",
     "@types/set-cookie-parser": "^2.4.2",
