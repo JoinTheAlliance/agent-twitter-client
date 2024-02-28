@@ -1,0 +1,7 @@
+docs/
+src/
+.*/
+jest.config.js
+tsconfig.json
+typedoc.json
+package-lock.json
