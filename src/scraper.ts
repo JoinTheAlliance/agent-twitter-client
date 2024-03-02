@@ -26,7 +26,7 @@ import {
   getTweetWhere,
   getTweetsWhere,
   getTweetsByUserId,
-  createCreateDraftTweetRequest,
+  createCreateTweetRequest,
   TweetQuery,
   getTweet,
   fetchListTweets,
@@ -263,15 +263,19 @@ export class Scraper {
 
   async sendTweet(text: string) {
     try {
-      const response = await createCreateDraftTweetRequest(text, this.auth);
-      if (response.success) {
-        console.log('Draft tweet created successfully:', response.value);
+      const response = await createCreateTweetRequest(text, this.auth);
+      console.log('**** response');
+      console.log(JSON.stringify(response));
+      if (response.ok) {
+        console.log('Draft tweet created successfully:');
+        return true;
       } else {
-        console.error('Failed to create draft tweet:', response.err);
+        console.error('Failed to create draft tweet');
       }
     } catch (error) {
       console.error('Error in sending draft tweet:', error);
     }
+    return false;
   }
 
   /**

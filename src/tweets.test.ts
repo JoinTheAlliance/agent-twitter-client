@@ -299,42 +299,13 @@ test('scraper can get tweet thread', async () => {
   expect(tweet?.thread.length).toStrictEqual(7);
 });
 
-test('sendTweet successfully sends a draft tweet', async () => {
+test('sendTweet successfully sends a tweet', async () => {
   const scraper = await getScraper();
-  const draftText = 'This is a test draft tweet';
+  const draftText = 'This is a test tweet';
 
-  // Since actual sending without mocks isn't feasible, we'll assume the function logs success
-  const consoleSpy = jest.spyOn(console, 'log');
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  await scraper.sendTweet(draftText, scraper.auth);
-
-  // Verify that a success message was logged
-  // Note: This assumes your implementation of sendTweet logs a success message on completion
-  expect(consoleSpy).toHaveBeenCalledWith(
-    expect.stringContaining('Draft tweet created successfully'),
-  );
-
-  consoleSpy.mockRestore();
-});
-
-test('sendTweet handles errors when sending a draft tweet fails', async () => {
-  const scraper = await getScraper();
-  const draftText = 'This is a test draft tweet expected to fail';
-
-  // Simulate an error, perhaps by providing invalid credentials or text
-  const consoleErrorSpy = jest.spyOn(console, 'error');
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  await scraper.sendTweet(draftText, scraper.auth);
+  const success = await scraper.sendTweet(draftText);
 
   // Verify that an error message was logged
   // Note: This assumes your implementation of sendTweet logs an error message on failure
-  expect(consoleErrorSpy).toHaveBeenCalledWith(
-    expect.stringContaining('Failed to create draft tweet'),
-  );
-
-  consoleErrorSpy.mockRestore();
+  expect(success).toBe(true);
 });
