@@ -299,7 +299,7 @@ test('scraper can get tweet thread', async () => {
   expect(tweet?.thread.length).toStrictEqual(7);
 });
 
-test('sendDraftTweet successfully sends a draft tweet', async () => {
+test('sendTweet successfully sends a draft tweet', async () => {
   const scraper = await getScraper();
   const draftText = 'This is a test draft tweet';
 
@@ -308,10 +308,10 @@ test('sendDraftTweet successfully sends a draft tweet', async () => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  await scraper.sendDraftTweet(draftText, scraper.auth);
+  await scraper.sendTweet(draftText, scraper.auth);
 
   // Verify that a success message was logged
-  // Note: This assumes your implementation of sendDraftTweet logs a success message on completion
+  // Note: This assumes your implementation of sendTweet logs a success message on completion
   expect(consoleSpy).toHaveBeenCalledWith(
     expect.stringContaining('Draft tweet created successfully'),
   );
@@ -319,7 +319,7 @@ test('sendDraftTweet successfully sends a draft tweet', async () => {
   consoleSpy.mockRestore();
 });
 
-test('sendDraftTweet handles errors when sending a draft tweet fails', async () => {
+test('sendTweet handles errors when sending a draft tweet fails', async () => {
   const scraper = await getScraper();
   const draftText = 'This is a test draft tweet expected to fail';
 
@@ -328,10 +328,10 @@ test('sendDraftTweet handles errors when sending a draft tweet fails', async () 
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  await scraper.sendDraftTweet(draftText, scraper.auth);
+  await scraper.sendTweet(draftText, scraper.auth);
 
   // Verify that an error message was logged
-  // Note: This assumes your implementation of sendDraftTweet logs an error message on failure
+  // Note: This assumes your implementation of sendTweet logs an error message on failure
   expect(consoleErrorSpy).toHaveBeenCalledWith(
     expect.stringContaining('Failed to create draft tweet'),
   );

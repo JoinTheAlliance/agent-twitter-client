@@ -2,7 +2,7 @@
   "name": "agent-twitter-client",
   "description": "A twitter client for agents",
   "keywords": ["agent", "bgent", "twitter", "x"],
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "repository": "https://github.com/jointhealliance/agent-twitter-client.git",
   "license": "MIT",

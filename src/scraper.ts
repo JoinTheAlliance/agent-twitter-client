@@ -261,9 +261,9 @@ export class Scraper {
     return getTweetsByUserId(userId, maxTweets, this.auth);
   }
 
-  async sendDraftTweet(text: string, auth: TwitterAuth) {
+  async sendTweet(text: string) {
     try {
-      const response = await createCreateDraftTweetRequest(text, auth);
+      const response = await createCreateDraftTweetRequest(text, this.auth);
       if (response.success) {
         console.log('Draft tweet created successfully:', response.value);
       } else {
