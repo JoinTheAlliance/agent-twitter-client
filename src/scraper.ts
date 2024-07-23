@@ -2,7 +2,12 @@ import { Cookie } from 'tough-cookie';
 import { bearerToken, FetchTransformOptions, RequestApiResult } from './api';
 import { TwitterAuth, TwitterAuthOptions, TwitterGuestAuth } from './auth';
 import { TwitterUserAuth } from './auth-user';
-import { getProfile, getUserIdByScreenName, getScreenNameByUserId, Profile } from './profile';
+import {
+  getProfile,
+  getUserIdByScreenName,
+  getScreenNameByUserId,
+  Profile,
+} from './profile';
 import {
   fetchSearchProfiles,
   fetchSearchTweets,
@@ -98,13 +103,11 @@ export class Scraper {
   }
 
   /**
-   * 
+   *
    * @param userId The user ID of the profile to fetch.
-   * @returns The 
+   * @returns The screen name of the corresponding account.
    */
-  public async getScreenNameByUserId(
-    userId: string,
-  ): Promise<string> {
+  public async getScreenNameByUserId(userId: string): Promise<string> {
     const response = await getScreenNameByUserId(userId, this.auth);
     return this.handleResponse(response);
   }
